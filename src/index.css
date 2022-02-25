@@ -1,9 +1,10 @@
 body {
   margin: 0;
-  background-color: gray;
+  background-color: #CCCCCC;
 }
 
 .navbar{
+  top: 0;
   width: 100%;
   height: 10vh;
   background-color: black;
@@ -21,16 +22,93 @@ body {
   right: 20%;
   top: 2.5vh;
 }
-p{
-  position: absolute;
-  top: 50%;
+.location{
+  position: relative;
+  margin-top: 10vh;
+  text-align: center;
+  font-size: 4rem;
 }
-.weather{
-  width: 70vw;
-  height: 50vh;
-  left: 15vw;
-  top: 30vh;
-  position: absolute;
-  background-color: darkcyan;
-  border-radius: 30px;
+.farenheit{
+  font-size: 8rem;
+  margin-left: 10%;
+  margin-top: 0;
+  margin-bottom: 0;
+  position: relative;
+}
+.weather-section{
+  margin-top: 10rem;
+}
+.weather-block{
+  margin-top: 5rem;
+  width: 35%;
+  margin-left: 32.5%;
+  position: relative;
+  display: flex;
+  background-color: white;
+}
+.weather-block-title{
+  padding-left: 2rem;
+  margin-bottom: 0;
+}
+.weather-time{
+  position: relative;
+  margin-left: 2.2rem;
+  margin-top: 0;
+  color: gray;
+}
+.f-letter{
+  position: block;
+  z-index: 5;
+  font-size: 2.2rem;
+  color: gray;
+  margin-top: 5rem;
+  margin-left: -2.7rem;
+}
+.weather-section-left-bottom{
+  display: flex;
+  margin-top: 20%;
+  height: auto;
+}
+.weather-section-image{
+  height: 10rem;
+  margin-left: 2rem;
+}
+.weather-section-image-text{
+  color: gray;
+  height: auto;
+  padding-left: 2rem;
+}
+.weather-image-text-span{
+  position: bottom;
+}
+.weather-section-last-updated{
+  position: relative;
+  color: gray;
+  margin: 0;
+}
+.max-temp, .min-temp{
+  font-size: 4rem;
+  text-align: center;
+}
+.max-temp{
+  color: red;
+  margin-bottom: 0;
+}
+.min-temp{
+  color: blue;
+  margin-top: 0;
+}
+.max-min-temp-container{
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+}
+.temp-divider{
+  width: 12rem;
+  border: 2px solid gray;
+}
+.weather-section-right{
+  display: flex;
+  flex-direction: column;
+  margin-left: 10%;
 }

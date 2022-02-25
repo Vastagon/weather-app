@@ -20,7 +20,7 @@ export default function Navbar({loc, inputData, setLoc, setInputData}){
     return(
         <form onSubmit={submitLoc} className="navbar">
             <input required name="loc" onChange={handleChange} className="location-entry" type="text" placeholder="Location" />
-            <button type="submit">Submit</button>
+            <button type="submit">Search</button>
         </form>
     )
 }
