@@ -1,20 +1,21 @@
 import React from 'react';
 import './index.css';
 import Navbar from "./components/Navbar"
-import {useState} from "react"
+import {useState, useRef} from "react"
 import Weather from './components/Weather';
-
+// import listenForOutsideClick from './components/listenForOutsideClick';
 
 function App() {
   const [inputData, setInputData] = useState({})
   const [currentWeather, setCurrentWeather] = useState({})
   const [loc, setLoc] = useState({loc:"Arlington"})
+  const [listOfLoc, setListOfLoc] = useState([])
+  const [listening, setListening] = useState(false)
   let apiKey = "7ab98e97faa64c4d8b4104902222202"
-  console.log(currentWeather)
-  console.log("Location: " + loc.loc)
+  let throwAway = false
+
 
   React.useEffect(() =>{///Finds weather data of certain location
-    console.log(loc.loc)
     fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${loc.loc}&aqi=no`)
     .then(res => {
       if(res.ok){
@@ -32,20 +33,34 @@ function App() {
   }, [loc.loc])
 
   React.useEffect(() =>{///Finds locations with search bar
-    fetch(`https://api.weatherapi.com/v1/search.json?key=${apiKey}&q=${loc.loc}&aqi=no`)
+    fetch(`https://api.weatherapi.com/v1/search.json?key=${apiKey}&q=${inputData.loc}&aqi=no`)
     .then(res => res.json())
     .then(data => {
+      setListOfLoc(data.slice(0,5))
+      
       if(data.loc == null){
       }else{
         setLoc(data)
       }
     })
+    // dropdownBoolean = true
+    // console.log(dropdownBoolean)
+  }, [inputData.loc])
+
+  React.useEffect(() =>{
+    setListening(true)
   }, [])
+
+  function weatherDivClicked(){
+    setListening(false)
+  }
 
   return (
     <div className="App">
-      <Navbar inputData={inputData} setLoc={setLoc} setInputData={setInputData}/>
-      <Weather loc={loc} currentWeather={currentWeather}/>
+      <Navbar setListening={setListening} listening={listening} loc={loc} currentWeather={currentWeather} listOfLoc={listOfLoc} inputData={inputData} setLoc={setLoc} setInputData={setInputData}/>
+      <div onClick={weatherDivClicked}>
+        <Weather setListening={setListening} loc={loc} currentWeather={currentWeather}/>
+      </div>
     </div>
   );
 }

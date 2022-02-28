@@ -3,9 +3,16 @@ import Wind from "./Wind"
 
 export default function Weather(props){    
 
+    function removeSearchResults(){
+        console.log("HELP")
+        alert("HELP")
+        props.setListening(false)
+        // props.dropdownBoolean = false
+        // document.getElementsByClassName("location-dropdown").style.display = "none"
+    }
+
     return(
-        <div className="">
-            <h2 className="location">{props.currentWeather?.location?.name}, {props.currentWeather?.location?.region}</h2>
+        <div id="weather" className="weather" onClick={removeSearchResults}>
             <CurrentWeather loc={props.loc} currentWeather={props.currentWeather}/>
             <Wind />
         </div>
