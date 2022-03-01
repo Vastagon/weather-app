@@ -1,19 +1,16 @@
 import React from 'react';
 import './index.css';
 import Navbar from "./components/Navbar"
-import {useState, useRef} from "react"
+import {useState} from "react"
 import Weather from './components/Weather';
-// import listenForOutsideClick from './components/listenForOutsideClick';
 
 function App() {
   const [inputData, setInputData] = useState({})
-  const [currentWeather, setCurrentWeather] = useState({})
+  const [currentWeather, setCurrentWeather] = useState(null)
   const [loc, setLoc] = useState({loc:"Arlington"})
   const [listOfLoc, setListOfLoc] = useState([])
   const [listening, setListening] = useState(false)
   let apiKey = "7ab98e97faa64c4d8b4104902222202"
-  let throwAway = false
-
 
   React.useEffect(() =>{///Finds weather data of certain location
     fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${loc.loc}&aqi=no`)
@@ -43,13 +40,16 @@ function App() {
         setLoc(data)
       }
     })
-    // dropdownBoolean = true
-    // console.log(dropdownBoolean)
   }, [inputData.loc])
 
   React.useEffect(() =>{
     setListening(true)
   }, [])
+
+  ///doesn't show page until currentWeather has been given info
+  if(!currentWeather){
+    return null
+  }
 
   function weatherDivClicked(){
     setListening(false)

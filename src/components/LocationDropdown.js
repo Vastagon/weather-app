@@ -5,7 +5,7 @@ import {v4 as uuid} from "uuid"
 export default function LocationDropdown(props){
         const allDropdownElements = props.listOfLoc.map(locationData =>{
             return(
-                <LocationDropdownElement setLoc={props.setLoc} name={locationData.name} region={locationData.region} key={uuid()} />
+                <LocationDropdownElement setListening={props.setListening} setLoc={props.setLoc} name={locationData.name} region={locationData.region} key={uuid()} />
             )
 
         })        

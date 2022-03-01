@@ -1,5 +1,5 @@
-import React, {useState} from "react"
 import LocationDropdown from "./LocationDropdown"
+import { useEffect } from "react"
 
 export default function Navbar({setListening, listening, loc, listOfLoc, inputData, setLoc, setInputData, currentWeather}){
 
@@ -15,16 +15,16 @@ export default function Navbar({setListening, listening, loc, listOfLoc, inputDa
     function submitLoc(event){///Submits entered location and set loc to entry
         event.preventDefault()
         setLoc(inputData)
+        setListening(false)///hides dropdown when submitted
 
     }
+    useEffect(() =>{
+        setListening(true)
+    },[inputData])
     function handleInputClick(){
-        console.log("EGE")
         setListening(true)
     }
 
-    React.useEffect(() =>{
-        console.log(listening)
-    }, [])
     return(
         <form onSubmit={submitLoc} className="navbar">
             <h2 className="location">{currentWeather?.location?.name}, {currentWeather?.location?.region}</h2>
@@ -33,7 +33,7 @@ export default function Navbar({setListening, listening, loc, listOfLoc, inputDa
                     <input onClick={handleInputClick} autoComplete="off" required name="loc" onChange={handleChange} className="location-entry" type="text" placeholder="Location" />
                     <button className="search-button" type="submit">Search</button>
                 </div>
-                <LocationDropdown setLoc={setLoc} listening={listening} loc={loc} listOfLoc={listOfLoc}/>                
+                <LocationDropdown setLoc={setLoc} setListening={setListening} listening={listening} loc={loc} listOfLoc={listOfLoc}/>                
             </div>
         </form>
     )
