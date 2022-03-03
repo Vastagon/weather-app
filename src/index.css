@@ -203,7 +203,28 @@ body {
   margin-top: 0;
 }
 
-@media screen and (max-width: 900px){
+@media screen and (max-width: 1800px){
+  .farenheit{
+    font-size: 4rem;
+    margin-left: 0%;
+    margin-top: 0;
+    margin-bottom: 0;
+    position: relative;
+  }
+  .weather-block-title{
+    font-size: 1rem;
+  }
+  .f-letter{
+    font-size: 1.5rem;
+    margin-top: 2.5rem;
+    margin-left: -1.4rem;
+  }
+}
+
+/* iphoneSE bottom left text has margin top and bot of 16px
+bottom right has no passing just position */
+
+@media screen and (max-width: 1200px){
   .navbar{
     position: fixed;
     width: 100vw;
