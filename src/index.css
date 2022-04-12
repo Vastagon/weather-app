@@ -330,9 +330,23 @@ bottom right has no passing just position */
 }
 
 
+@media screen and (max-width: 800px){
+  .weather{
+    margin-top: 20%;
+  }
+}
+
 @media screen and (max-width: 500px){
   .weather-block{
     width: 90vw;
     margin-left: 5%;
+  }
+  .weather{
+    margin-top: 25%;
+  }
+}
+@media screen and (max-width: 320px){
+  .weather-section-image-text, .weather-section-last-updated{
+    font-size: .9rem;
   }
 }
