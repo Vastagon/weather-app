@@ -204,6 +204,13 @@ body {
 }
 
 
+
+
+
+
+
+
+
 @media screen and (max-width: 1440px) {
   .farenheit{
     font-size: 5rem;
@@ -216,7 +223,6 @@ body {
     margin-left: -1.9rem;
   }
 }
-
 @media screen and (max-width: 1800px){
   .farenheit{
     font-size: 4rem;
@@ -269,7 +275,7 @@ bottom right has no passing just position */
     width: 30vw;
   }
   .weather{
-    margin-top: 25%;
+    margin-top: 10%;
   }
   .search-button, .f-letter{
     display: none;
