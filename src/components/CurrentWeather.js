@@ -2,21 +2,23 @@
 export default function CurrentWeather(props){
     let lastUpdatedTime
     let currentTime
-
+    console.log(props.currentWeather?.location?.localtime.substring(11,12))
+    console.log(props.currentWeather?.location?.localtime)
     ///Conditional rendering for last updated time
-    if(parseInt(props.currentWeather?.location?.localtime.substring(11,13))>12){
-        lastUpdatedTime = <p className="weather-section-last-updated">Last Updated: {parseInt(props.currentWeather?.current?.last_updated.substring(11,13)) - 12}:{props.currentWeather?.location?.localtime.substring(14)} PM</p>
-    } else if(props.currentWeather?.location?.localtime.substring(11,13) == 12){
+    if(parseInt(props.currentWeather?.current?.last_updated.substring(11,13)) === 0){
         lastUpdatedTime = <p className="weather-section-last-updated">Last Updated: 12:{props.currentWeather?.current?.last_updated.substring(14)} AM</p>
-    }else{
+
+    } else if(parseInt(props.currentWeather?.current?.last_updated.substring(11,13))>12){
+        lastUpdatedTime = <p className="weather-section-last-updated">Last Updated: {parseInt(props.currentWeather?.current?.last_updated.substring(11,13)) - 12}:{props.currentWeather?.current?.last_updated.substring(14)} PM</p>
+
+    }else {
         lastUpdatedTime = <p className="weather-section-last-updated">Last Updated: {props.currentWeather?.current?.last_updated.substring(11)} AM</p>
     }
-
     ///Conditional rendering for local time
-    if(parseInt(props.currentWeather?.location?.localtime.substring(11,13))>12){
+    if(parseInt(props.currentWeather?.location?.localtime.substring(11,12)) === 0){
+        currentTime = <p className="weather-time">12:{props.currentWeather?.location?.localtime.substring(13)} AM</p>
+    } else if(parseInt(props.currentWeather?.location?.localtime.substring(11,13))>12){
         currentTime = <p className="weather-time">{parseInt(props.currentWeather?.location?.localtime.substring(11,13)) - 12}:{props.currentWeather?.location?.localtime.substring(14)} PM</p>
-    } else if(props.currentWeather?.location?.localtime.substring(11,13) == 12){
-        currentTime = <p className="weather-time">12:{props.currentWeather?.location?.localtime.substring(14)} AM</p>
     }else{
         currentTime = <p className="weather-time">{props.currentWeather?.location?.localtime.substring(11)} AM</p>
     }

@@ -203,6 +203,38 @@ body {
   margin-top: 0;
 }
 
+
+@media screen and (max-width: 1440px) {
+  .farenheit{
+    font-size: 5rem;
+    margin-top: 10%;
+    margin-bottom: 0;
+  }
+  .f-letter{
+    font-size: 2.2rem;
+    margin-top: 4.5rem;
+    margin-left: -1.9rem;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .farenheit{
+    font-size: 3rem;
+    margin-top: 10%;
+    margin-bottom: 0;
+  }
+  .f-letter{
+    font-size: 1.3rem;
+    margin-top: 2.9rem;
+    margin-left: -1.1rem;
+  }
+  .weather-section-image{
+    height: 8rem;
+    margin-left: 1rem;
+  
+  }
+}
+
+
 @media screen and (max-width: 900px){
   .navbar{
     position: fixed;
